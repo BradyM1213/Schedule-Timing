@@ -31,25 +31,29 @@ def index():
     if User.is_authenticated is True:
         return 'Muah'
     else:
-        return render_template("login.html")
+        return render_template("Signup.html")
 
 
+@login_manager.user_loader
 @app.route('/signup', methods=["POST"])
-def Signup():
-    uname = request.form["username"]
-    Number = request.form["phone"]
-    email = request.form["email"]
-    Pass = request.form["password"]
-    user = User(Number, email, uname, Pass)
-    db.session.add(user)
-    db.session.commit()
-    login_user(user, remember=True)
-    return 'MUAHA'
+def Signup(self):
+    try:
+        uname = request.form["username"]
+        Number = request.form["phone"]
+        email = request.form["email"]
+        Pass = request.form["password"]
+        user = User(Number, email, uname, Pass)
+        db.session.add(user)
+        db.session.commit()
+        login_manager.login_user(user, remember=True)
+        return 'MUAHA'
+    except Exception as e:
+        return str(e)
 
 
 @app.route('/logout')
 def logout():
-    User.logout_user()
+    login_manager.logout_user()
     return 'Logged Out'
 
 
