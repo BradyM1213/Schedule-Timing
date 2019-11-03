@@ -57,5 +57,10 @@ def logout():
     return 'Logged Out'
 
 
+@app.route('/login')
+def login():
+    return render_template("Login.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

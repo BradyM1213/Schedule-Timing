@@ -9,6 +9,7 @@ a{
   text-decoration: none;
   color: white;
   font-family: monospace;
+  text-align: left;
 
   padding: 2vw;
 }
@@ -52,7 +53,8 @@ body{
   }
 
 button{
-  display: none;
+  display: block;
+  text-align: left;
 }
 
 a:hover{
