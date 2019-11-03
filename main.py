@@ -53,7 +53,7 @@ def Signup():
         db.session.add(user)
         db.session.commit()
         login_user(user, remember=True)
-        return 'MUAHA'
+        return render_template("Schedule.html")
     except Exception as e:
         return str(e)
 
