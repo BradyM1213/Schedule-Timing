@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename='Schedule.css') }}" />
+</head>
+<body>
+    <nav>
+            <ul>
+                <li> 
+                <!-- link one -->
+                <a href="#schedule"> Schedule </a>
+                </li>
+                <li>
+                <!-- link two -->
+                    <a href="#settings"> Settings </a>
+                </li>
+                <li>
+                <!-- link four -->
+                <a href="{{ url_for('index') }}"> Signup </a>
+                </li>
+            </ul>
+    </nav>
+
+    <iframe src="http://pcbellschedule.azurewebsites.net/api/ftl/middleschool/schedule/" style="border:0px #ffffff none;" name="iframe" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="100%" width="100%" allowfullscreen></iframe>
+</body>
+</html>

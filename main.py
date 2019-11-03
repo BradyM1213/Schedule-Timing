@@ -69,5 +69,20 @@ def login():
     return render_template("Login.html")
 
 
+@app.route('/settings')
+def settings():
+    return render_template("Index.html")
+
+
+@app.route('/change', methods=["POST"])
+def changesettings():
+    return 'NO'
+
+
+@app.route('/schedule')
+def schedule():
+    return render_template("Schedule.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
