@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      alert({{ messages }})
+    {% endif %}
+  {% endwith %}
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename='Login.css') }}" />
+</head>
 <body>
         <nav>
                 <ul>
@@ -37,6 +44,4 @@
         <button type="submit" class="text-box">Signup</button>
     </form>
 </body>
-</body>
-</head>
 </html>
