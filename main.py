@@ -31,7 +31,7 @@ def index():
     if User.is_authenticated is True:
         return 'Muah'
     else:
-        return render_template("login.html")
+        return render_template("Signup.html")
 
 
 @app.route('/signup', methods=["POST"])
@@ -49,7 +49,7 @@ def Signup():
 
 @app.route('/logout')
 def logout():
-    User.logout_user()
+    logout_user()
     return 'Logged Out'
 
 
