@@ -1,12 +1,15 @@
 from flask import Flask, request
 from flask import render_template
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin, login_user, logout_user
+from flask_login import UserMixin, login_user, logout_user, LoginManager
 import hashlib
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SECRET_KEY'] = 'MUAHAHAHAHHAHAHAHAHAHAHAHAAHAH'
 db = SQLAlchemy(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 
 class User(db.Model, UserMixin):
@@ -25,7 +28,7 @@ class User(db.Model, UserMixin):
 
 @app.route('/', methods=["GET"])
 def index():
-    if User.is_authenticated:
+    if User.is_authenticated is True:
         return 'Muah'
     else:
         return render_template("login.html")
@@ -46,7 +49,7 @@ def Signup():
 
 @app.route('/logout')
 def logout():
-    logout_user()
+    User.logout_user()
     return 'Logged Out'
 
 

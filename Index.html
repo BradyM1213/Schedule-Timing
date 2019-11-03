@@ -1,56 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel = "stylesheet" type = "text/css" href = "Index.css" />
-<script src="Index.js"></script>
-</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel = "stylesheet" type = "text/css" href = "Index.css" />
+  <script src="Index.js"></script>
 </head>
 <body>
 
-<h2 class="text">Reminder Setting</h2><br><br>
+  <h2 class="text">Reminder Setting</h2><br><br>
 
-<form>
+  <form action="{{ url_for('Settings') }}"">
 
-<label class="text-small">Number of minutes before end:</label>
-  <legend>Selecting elements</legend>
-  <select class="text-box" id = "drop">
-    <option value = "1">5 Minutes</option>
-    <option value = "2">10 Minutes</option>
-    <option value = "3">15 Minutes</option>
-    <option value = "4">20 Minutes</option>
-    <option value = "5">25 Minutes</option>
-    <option value = "6">30 Minutes</option>
-    <option value = "7">35 Minutes</option>
-    <option value = "8">40 Minutes</option>
-    <option value = "9">45 Minutes</option>
-    <option value = "10">50 Minutes</option>
-    <option value = "11">55 Minutes</option>
-    
-    
-    
-  </select>
-<br><br>
+    <label class="text-small">Number of minutes before end:</label>
+      <legend>Selecting elements</legend>
+      <select class="text-box" id = "drop">
+        <option value = "1">5 Minutes</option>
+        <option value = "2">10 Minutes</option>
+        <option value = "3">15 Minutes</option>
+        <option value = "4">20 Minutes</option>
+        <option value = "5">25 Minutes</option>
+        <option value = "6">30 Minutes</option>
+        <option value = "7">35 Minutes</option>
+        <option value = "8">40 Minutes</option>
+        <option value = "9">45 Minutes</option>
+        <option value = "10">50 Minutes</option>
+        <option value = "11">55 Minutes</option>
+      </select>
+    <br><br>
 
 
 
-<label class="switch">
-  <input type="checkbox" id="slidero">
-  <span class="slider"></span>
-</label><label class="text-small">   Text</label><br><br>
+    <label class="switch">
+      <input type="checkbox" id="slidero">
+      <span class="slider"></span>
+    </label><label class="text-small">   Text</label><br><br>
 
 
-<label class="switch">
-  <input type="checkbox" id="slidert">
-  <span class="slider"></span>
-</label><label class="text-small">   Email</label>
-<br><br><br>
+    <label class="switch">
+      <input type="checkbox" id="slidert">
+      <span class="slider"></span>
+    </label><label class="text-small">   Email</label>
+    <br><br><br>
 
 
-<button onclick="saveCookies()">Save</button>
+    <button onclick="saveCookies()">Save</button>
 
-<button onclick="loadCookies()">Load</button>
-<br><br>
-</form>
+    <button onclick="loadCookies()">Load</button>
+    <br><br>
+  </form>
 </body>
 </html> 
