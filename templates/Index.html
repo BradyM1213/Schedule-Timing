@@ -5,10 +5,26 @@
 <link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename='Index.css') }}" />
 </head>
 <body>
+    <nav>
+        <ul>
+          <li> 
+            <!-- link one -->
+            <a href="#schedule"> Schedule </a>
+          </li>
+          <li>
+            <!-- link two -->
+             <a href="#settings"> Settings </a>
+          </li>
+          <li>
+            <!-- link four -->
+            <a href="{{ url_for('logout') }}"> Logout </a>
+          </li>
+        </ul>
+      </nav>
 
   <h2 class="text">Reminder Setting</h2><br><br>
 
-  <form action="{{ url_for('Settings') }}"">
+  <form action="{{ url_for('changesettings') }}"">
 
     <label class="text-small">Number of minutes before end:</label>
       <legend>Selecting elements</legend>
@@ -42,9 +58,7 @@
     <br><br><br>
 
 
-    <button onclick="saveCookies()">Save</button>
-
-    <button onclick="loadCookies()">Load</button>
+    <button onclick="saveCookies()" class="text-box">Save</button>
     <br><br>
   </form>
 </body>
