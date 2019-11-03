@@ -8,8 +8,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SECRET_KEY'] = 'MUAHAHAHAHHAHAHAHAHAHAHAHAAHAH'
 db = SQLAlchemy(app)
-login_manager = LoginManager()
-login_manager.init_app(app)
+login = LoginManager()
+login.init_app(app)
 
 
 class User(db.Model, UserMixin):
@@ -25,6 +25,14 @@ class User(db.Model, UserMixin):
         self.Username = Uname
         self.PasswordH = str(hashlib.md5(Pass.encode()).hexdigest())
 
+    def is_authenticated(self):
+        return True
+
+
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
 
 @app.route('/', methods=["GET"])
 def index():
@@ -34,9 +42,8 @@ def index():
         return render_template("Signup.html")
 
 
-@login_manager.user_loader
 @app.route('/signup', methods=["POST"])
-def Signup(self):
+def Signup():
     try:
         uname = request.form["username"]
         Number = request.form["phone"]
@@ -45,7 +52,7 @@ def Signup(self):
         user = User(Number, email, uname, Pass)
         db.session.add(user)
         db.session.commit()
-        login_manager.login_user(user, remember=True)
+        login_user(user, remember=True)
         return 'MUAHA'
     except Exception as e:
         return str(e)
@@ -53,7 +60,7 @@ def Signup(self):
 
 @app.route('/logout')
 def logout():
-    login_manager.logout_user()
+    logout_user()
     return 'Logged Out'
 
 
